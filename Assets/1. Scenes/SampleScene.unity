@@ -6386,6 +6386,7 @@ MonoBehaviour:
   findText: {fileID: 1790868855}
   errorUI: {fileID: 1229882946}
   errorMessage: {fileID: 253225461}
+  errorIDUI: {fileID: 1830036387}
 --- !u!4 &2134195980
 Transform:
   m_ObjectHideFlags: 0

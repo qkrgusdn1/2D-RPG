@@ -24,6 +24,7 @@ public class StartManager : MonoBehaviour
     [Header("Error")]
     public GameObject errorUI;
     public Text errorMessage;
+    public GameObject errorIDUI;
 
     public void MembershipBtn()
     {
@@ -66,6 +67,7 @@ public class StartManager : MonoBehaviour
         if(PlayerPrefs.GetString("FIND") == findText.text)
         {
             errorMessage.text = $"ID : {PlayerPrefs.GetString("ID")} \nPW : {PlayerPrefs.GetString("PW")}";
+            errorIDUI.gameObject.SetActive(false);
         }
         else
         {
@@ -76,6 +78,7 @@ public class StartManager : MonoBehaviour
 
     void ErrorMessageExit()
     {
+        errorIDUI.gameObject.SetActive(true);
         errorUI.SetActive(false);
     }
 
