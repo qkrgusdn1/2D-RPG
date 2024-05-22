@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectCharacter : MonoBehaviour
@@ -12,7 +14,16 @@ public class SelectCharacter : MonoBehaviour
 
     [Header("Character")]
     public GameObject[] characters;
+    public CharacterInfo[] characterInfos;
     public int charIndex;
+
+    [Header("GameStart")]
+    public GameObject gameStart;
+    public Text gameCountTxt;
+    bool isPlayButtonClicked = false;
+    float gameCount = 5f;
+
+    public static string characterName;
 
     public void SelectCharacterBtn(string btnName)
     {
@@ -33,5 +44,39 @@ public class SelectCharacter : MonoBehaviour
         }
         characters[charIndex].SetActive(true);
         Debug.Log($"CharIndex : {charIndex}");
+
+        SetPanelInfo();
+    }
+
+    void SetPanelInfo()
+    {
+        nameTxt.text = characterInfos[charIndex].Name;
+        featureTxt.text = characterInfos[charIndex].feature;
+        charImage.sprite = characters[charIndex].GetComponent<SpriteRenderer>().sprite;
+    }
+
+    private void Update()
+    {
+        if (isPlayButtonClicked)
+        {
+            gameCount -= Time.deltaTime;
+            if (gameCount <= 0)
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+            gameCountTxt.text = $"곧 게임이 시작됩니다. \n {gameCount:F1}";
+        }
+    }
+
+    public void PlayBtn()
+    {
+        gameStart.SetActive(true);
+        isPlayButtonClicked = true;
+        characterName = characters[charIndex].name;
+    }
+
+    private void Start()
+    {
+        SetPanelInfo();
     }
 }
