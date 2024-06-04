@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
 
     public float playerHp;
     public float playerExp;
-
+    GameObject player;
+    public int coin;
     private void Awake()
     {
         if(Instance == null)
@@ -25,6 +26,13 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(Instance);
+    }
+
+    public GameObject SpawnPlayer(Transform spawnPos)
+    {
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + characterName);
+        player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
+        return player;
     }
 
     private void Start()

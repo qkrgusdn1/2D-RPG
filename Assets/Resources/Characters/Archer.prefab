@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4564565297268495620}
   m_Layer: 0
   m_Name: Archer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,10 +30,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859583001343559748}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.59, y: -1.56, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 0.6666667}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4990771515861045395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16884446, y: 0.021358147}
+  m_Offset: {x: 0.071404964, y: 0.021358132}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -180,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.58106244, y: 0.6404381}
+  m_Size: {x: 0.38618344, y: 0.6404381}
   m_EdgeRadius: 0
 --- !u!114 &5439022628415951613
 MonoBehaviour:
@@ -195,12 +195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 10
   jumpPower: 6
   animator: {fileID: 5391650286795708667}
   attackClip: {fileID: 8300000, guid: a5092db545697934bb872b1dcbb7621f, type: 3}
   jumpClip: {fileID: 8300000, guid: 358216b2a2a8fa54c8712a5b587d500e, type: 3}
   attackSpeed: 6
   attackObj: {fileID: 2005906129895596174, guid: 59bba9e7f1eabfd42a10543deacd4608, type: 3}
+  playerHP: 0
+  playerExp: 0
 --- !u!82 &4564565297268495620
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public float speed;
+    public float maxSpeed;
     public float jumpPower;
 
     bool isFloor;
@@ -22,6 +24,13 @@ public class Character : MonoBehaviour
     public float attackSpeed;
     public GameObject attackObj;
 
+    bool isLadder;
+    bool isClimbing;
+    float inputVertical;
+
+    public float playerHP;
+    public float playerExp;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
@@ -34,11 +43,35 @@ public class Character : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             isFloor = false;
+            
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            isLadder = true;
+            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
+
+    private void Awake()
+    {
+        speed = maxSpeed;
+    }
     private void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,13 +83,42 @@ public class Character : MonoBehaviour
         Move();
         JumpCheck();
         AttackCheck();
+        ClimbingCheck();
     }
 
     private void FixedUpdate()
     {
         Jump();
         Attack();
+        Climbing();
     }
+
+    void ClimbingCheck()
+    {
+        inputVertical = Input.GetAxis("Vertical");
+        if(isLadder && Math.Abs(inputVertical) > 0)
+        {
+            isClimbing = true;
+            
+        }
+    }
+
+    void Climbing()
+    {
+        if (isClimbing)
+        {
+            speed = 3;
+            rigidbody2d.gravityScale = 0f;
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, inputVertical * speed);
+        }
+        else
+        {
+            speed = maxSpeed;
+            rigidbody2d.gravityScale = 1f;
+        }
+    }
+
+
 
     void AttackCheck()
     {
@@ -113,7 +175,7 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(attackClip);
 
-            if (gameObject.name == "Warrior")
+            if (gameObject.name == "Warrior(Clone)")
             {
                 attackObj.SetActive(true);
                 Invoke("SetAttackObjnactive", 0.5f);

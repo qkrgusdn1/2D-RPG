@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - Ladder
+  - Attack
+  - Coin
+  - HP
   layers:
   - Default
   - TransparentFX

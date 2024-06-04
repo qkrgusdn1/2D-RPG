@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6903755695241846315}
   m_Layer: 0
   m_Name: Warrior
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622757638050384465}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27, y: -1.3399999, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5078687242702428353}
@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3991927168532548210
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.076569036, y: -0.04194735}
+  m_Offset: {x: -0.07239833, y: -0.04194735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19524637, y: 0.34130707}
+  m_Size: {x: 0.13208927, y: 0.34130707}
   m_EdgeRadius: 0
 --- !u!114 &6364435050704655427
 MonoBehaviour:
@@ -196,12 +196,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 10
   jumpPower: 6
   animator: {fileID: 4952923618611172719}
   attackClip: {fileID: 8300000, guid: a5092db545697934bb872b1dcbb7621f, type: 3}
   jumpClip: {fileID: 8300000, guid: 358216b2a2a8fa54c8712a5b587d500e, type: 3}
   attackSpeed: 3
   attackObj: {fileID: 7382734230794175723}
+  playerHP: 0
+  playerExp: 0
 --- !u!82 &6903755695241846315
 AudioSource:
   m_ObjectHideFlags: 0
@@ -312,7 +315,7 @@ GameObject:
   - component: {fileID: 6526431518356418094}
   m_Layer: 0
   m_Name: AttackObj
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

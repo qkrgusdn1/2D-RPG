@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2774943934829941269}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8452442298256710500}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.97, y: -1.56, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3647762862172064907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14528468, y: -0.1515984}
+  m_Offset: {x: 0.12457821, y: -0.1515984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5496495, y: 0.6565155}
+  m_Size: {x: 0.33223158, y: 0.6565155}
   m_EdgeRadius: 0
 --- !u!95 &2679396231479759911
 Animator:
@@ -195,12 +195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 10
   jumpPower: 6
   animator: {fileID: 2679396231479759911}
   attackClip: {fileID: 8300000, guid: 50c1a9c1bfa40b24ab1d48bce82d2c41, type: 3}
   jumpClip: {fileID: 8300000, guid: 358216b2a2a8fa54c8712a5b587d500e, type: 3}
   attackSpeed: 3
   attackObj: {fileID: 618995261431636024, guid: 74196a10131fef64eaa2342142d9423b, type: 3}
+  playerHP: 0
+  playerExp: 0
 --- !u!82 &2774943934829941269
 AudioSource:
   m_ObjectHideFlags: 0
