@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8927907117150637433}
   - component: {fileID: 6364435050704655427}
   - component: {fileID: 6903755695241846315}
-  - component: {fileID: 2400937837459493725}
+  - component: {fileID: 1690209063520287519}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Player
@@ -256,8 +256,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &2400937837459493725
-CapsuleCollider2D:
+--- !u!61 &1690209063520287519
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -288,9 +288,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.074174784, y: -0.03979664}
-  m_Size: {x: 0.1855051, y: 0.33790168}
-  m_Direction: 0
+  m_Offset: {x: -0.07910431, y: -0.04345543}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.69, y: 0.44}
+    newSize: {x: 4.6, y: 2.9333334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18936767, y: 0.3405282}
+  m_EdgeRadius: 0
 --- !u!1 &7382734230794175723
 GameObject:
   m_ObjectHideFlags: 0

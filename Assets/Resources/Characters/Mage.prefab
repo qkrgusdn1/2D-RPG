@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2679396231479759911}
   - component: {fileID: 7218889702847605109}
   - component: {fileID: 2774943934829941269}
-  - component: {fileID: 2737357271393498148}
+  - component: {fileID: 7033231026943361806}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -255,8 +255,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &2737357271393498148
-CapsuleCollider2D:
+--- !u!61 &7033231026943361806
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -287,6 +287,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1112957, y: -0.1720022}
-  m_Size: {x: 0.40312576, y: 0.72015023}
-  m_Direction: 0
+  m_Offset: {x: 0.14357996, y: -0.14628875}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 2.8444445, y: 2.8444445}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.37517834, y: 0.6515002}
+  m_EdgeRadius: 0

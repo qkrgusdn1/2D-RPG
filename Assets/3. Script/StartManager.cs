@@ -24,7 +24,6 @@ public class StartManager : MonoBehaviour
     [Header("Error")]
     public GameObject errorUI;
     public Text errorMessage;
-    public GameObject errorIDUI;
 
     public void MembershipBtn()
     {
@@ -67,18 +66,16 @@ public class StartManager : MonoBehaviour
         if(PlayerPrefs.GetString("FIND") == findText.text)
         {
             errorMessage.text = $"ID : {PlayerPrefs.GetString("ID")} \nPW : {PlayerPrefs.GetString("PW")}";
-            errorIDUI.gameObject.SetActive(false);
         }
         else
         {
-            errorMessage.text = "아주 너무 잘못됀 힌트임";
+            errorMessage.text = "아주 너무 잘못된 힌트임";
         }
         Invoke("ErrorMessageExit", 3f);
     }
 
     void ErrorMessageExit()
     {
-        errorIDUI.gameObject.SetActive(true);
         errorUI.SetActive(false);
     }
 
