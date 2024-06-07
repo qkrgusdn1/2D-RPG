@@ -6,6 +6,4 @@ public class Attack : MonoBehaviour
 {
     public float attackDamage;
     public AudioSource audioSource;
-
-
 }

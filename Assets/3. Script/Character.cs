@@ -30,6 +30,8 @@ public class Character : MonoBehaviour
     public float playerExp;
     public static Character Instance;
 
+    public bool attackAudio;
+
     public AnimationEventHandler animationEventHandler;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -88,7 +90,7 @@ public class Character : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
 
         Attack attackObjAudio = GetComponentInChildren<Attack>(true);
-        if(attackObjAudio != null)
+        if(attackAudio)
         {
             attackObjAudio.audioSource.clip = attackClip;
         }
@@ -155,20 +157,14 @@ public class Character : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-            if (gameObject.name == "Sans(Clone)")
-            {
-                transform.localScale = new Vector3(scaleChange, transform.localScale.y, 0);
-            }
+            transform.localScale = new Vector3(scaleChange, transform.localScale.y, 0);
             animator.SetBool("Move", true);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-            if (gameObject.name == "Sans(Clone)")
-            {
-                transform.localScale = new Vector3(-scaleChange, transform.localScale.y, 0);
-            }
+            transform.localScale = new Vector3(-scaleChange, transform.localScale.y, 0);
             animator.SetBool("Move", true);
         }
         else
@@ -176,17 +172,17 @@ public class Character : MonoBehaviour
             animator.SetBool("Move", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (gameObject.name != "Sans(Clone)")
-                spriteRenderer.flipX = false;
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    if (gameObject.name != "Sans(Clone)")
+        //        spriteRenderer.flipX = false;
             
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (gameObject.name != "Sans(Clone)")
-                spriteRenderer.flipX = true;
-        }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //{
+        //    if (gameObject.name != "Sans(Clone)")
+        //        spriteRenderer.flipX = true;
+        //}
     }
 
     void JumpCheck()
@@ -204,7 +200,7 @@ public class Character : MonoBehaviour
     {
         if (justAttack)
         {
-            if (gameObject.name != "Sans(Clone)")
+            if (gameObject.name != "Sans(Clone)" && gameObject.name != "Frisk(Clone)")
             {
                 justAttack = false;
                 animator.SetTrigger("Attack");
@@ -214,12 +210,12 @@ public class Character : MonoBehaviour
             
 
 
-            if (gameObject.name == "Warrior(Clone)")
+            if (gameObject.name == "Warrior(Clone)" )
             {
                 attackObj.SetActive(true);
                 Invoke("SetAttackObjnactive", 0.5f);
             }
-            else if (gameObject.name == "Mage(Clone)" && gameObject.name == "Archer(Clone)")
+            else if (gameObject.name == "Mage(Clone)" || gameObject.name == "Archer(Clone)")
             {
                 if (spriteRenderer.flipX)
                 {
@@ -234,7 +230,7 @@ public class Character : MonoBehaviour
                     Destroy(obj, 3);
                 }
             }
-            else if (gameObject.name == "Sans(Clone)")
+            else if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)")
             {
                 animator.Play("Attack");
                 attackObj.SetActive(true);
@@ -247,11 +243,12 @@ public class Character : MonoBehaviour
 
     void SetAttackObjnactive()
     {
-        if (gameObject.name == "Sans(Clone)")
+        if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)")
         {
             justAttack = false;
             animator.Play("Idle");
-            attackObj.transform.localRotation = Quaternion.Euler(0, 0, 236.527f);
+            if (gameObject.name == "Sans(Clone)")
+                attackObj.transform.localRotation = Quaternion.Euler(0, 0, 236.527f);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
