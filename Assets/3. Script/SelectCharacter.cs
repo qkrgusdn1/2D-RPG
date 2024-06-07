@@ -21,7 +21,7 @@ public class SelectCharacter : MonoBehaviour
     public GameObject gameStart;
     public Text gameCountTxt;
     bool isPlayButtonClicked = false;
-    float gameCount = 5f;
+    public float gameCount;
 
     public void SelectCharacterBtn(string btnName)
     {
@@ -60,9 +60,10 @@ public class SelectCharacter : MonoBehaviour
             gameCount -= Time.deltaTime;
             if (gameCount <= 0)
             {
+                gameCountTxt.gameObject.SetActive(false);
                 SceneManager.LoadScene("MainScene");
             }
-            gameCountTxt.text = $"곧 게임이 시작됩니다. \n {gameCount:F1}";
+            gameCountTxt.text = $"곧 게임이 시작됩니다. \n {Mathf.FloorToInt(gameCount)}";
         }
     }
 

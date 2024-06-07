@@ -203,17 +203,17 @@ public class Character : MonoBehaviour
             if (gameObject.name != "Sans(Clone)" && gameObject.name != "Frisk(Clone)")
             {
                 justAttack = false;
-                animator.SetTrigger("Attack");
                 audioSource.PlayOneShot(attackClip);
+                if (gameObject.name != "Sans(Clone)" && gameObject.name != "Frisk(Clone)" && gameObject.name != "AsrielDreemurr(Clone)")
+                    animator.SetTrigger("Attack");
             }
+                
 
-            
-
-
-            if (gameObject.name == "Warrior(Clone)" )
+            if (gameObject.name == "Warrior(Clone)")
             {
                 attackObj.SetActive(true);
                 Invoke("SetAttackObjnactive", 0.5f);
+
             }
             else if (gameObject.name == "Mage(Clone)" || gameObject.name == "Archer(Clone)")
             {
@@ -230,7 +230,7 @@ public class Character : MonoBehaviour
                     Destroy(obj, 3);
                 }
             }
-            else if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)")
+            else if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)" || gameObject.name == "AsrielDreemurr(Clone)")
             {
                 animator.Play("Attack");
                 attackObj.SetActive(true);
@@ -243,7 +243,7 @@ public class Character : MonoBehaviour
 
     void SetAttackObjnactive()
     {
-        if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)")
+        if (gameObject.name == "Sans(Clone)" || gameObject.name == "Frisk(Clone)" || gameObject.name == "AsrielDreemurr(Clone)")
         {
             justAttack = false;
             animator.Play("Idle");
