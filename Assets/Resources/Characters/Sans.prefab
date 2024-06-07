@@ -462,7 +462,7 @@ MonoBehaviour:
   attackObj: {fileID: 1186314936781294365}
   playerHP: 0
   playerExp: 0
-  attackAudio: 0
+  attackAudio: 1
   animationEventHandler: {fileID: 7796019410387237596}
 --- !u!82 &2070533117971127521
 AudioSource:

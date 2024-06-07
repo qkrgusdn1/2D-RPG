@@ -25,6 +25,7 @@ public class SelectCharacter : MonoBehaviour
 
     public void SelectCharacterBtn(string btnName)
     {
+        
         characters[charIndex].SetActive(false);
         if (btnName == "Next")
         {
