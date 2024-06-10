@@ -77,7 +77,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b746aba194e7e0145bcd49c567c4eef9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6c3a5b47714a1774e80083ee97ce543f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -105,7 +105,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f1722b89ce819ad4dbc5fee0e9d15843, type: 2}
+  m_Motion: {fileID: 7400000, guid: 70246f93c3190874498210e22f39f59a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -132,7 +132,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87c9e940630d5534197e9c6bf1678751, type: 2}
+  m_Motion: {fileID: 7400000, guid: bc09f712211e2bd42ac5a2f5cbc82590, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -144,7 +144,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Monster
+  m_Name: KaidoDragon
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Die
@@ -221,7 +221,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f6034ee0c97c30d478af7183bb4e6304, type: 2}
+  m_Motion: {fileID: 7400000, guid: db659984e7bdc184fb25b472edf333cd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

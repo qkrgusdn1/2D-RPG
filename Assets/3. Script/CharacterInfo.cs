@@ -7,4 +7,5 @@ public class CharacterInfo : ScriptableObject
 {
     public string Name;
     public string feature;
+    public Sprite sprite;
 }

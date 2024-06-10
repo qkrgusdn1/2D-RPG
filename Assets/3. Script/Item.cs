@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
             if(gameObject.tag == "Coin")
             {
                 GameManager.Instance.coin += 10;
+                CoinCount.Instance.coinCountText.text = GameManager.Instance.coin.ToString();
                 Debug.Log("Coin");
                 Destroy(gameObject);
             }else if(gameObject.tag == "HP")

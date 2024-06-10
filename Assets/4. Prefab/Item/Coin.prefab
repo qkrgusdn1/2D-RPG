@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1401999827552378437}
   - component: {fileID: 2587814405805095733}
   - component: {fileID: 8565102933339597332}
-  - component: {fileID: 235082775605756615}
   - component: {fileID: 6010328439553378188}
+  - component: {fileID: 153474755021583031}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1106120231
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8980438598086963491, guid: ede4b03d4049f481a80ce6756418b385, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0d73f5ca5573c743b13d7bddb3b79a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,7 +108,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &235082775605756615
+--- !u!114 &6010328439553378188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658135771496708727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d7948083da2354ebae6d0d5e42904a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &153474755021583031
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,18 +152,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.026181102}
   serializedVersion: 2
-  m_Radius: 0.5416667
---- !u!114 &6010328439553378188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5658135771496708727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d7948083da2354ebae6d0d5e42904a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 1.0208348

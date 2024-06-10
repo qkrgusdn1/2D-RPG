@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -11,6 +12,8 @@ public class Monster : MonoBehaviour
     float moveTime;
     float turnTime;
     bool isDie;
+
+    public Animator tvAni;
 
     public float moveSpeed;
 
@@ -24,12 +27,16 @@ public class Monster : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            tvAni.Play("HappyTV");
             monsterAnimator.SetTrigger("Attack");
             GameManager.Instance.playerHp -= monsterDamage;
+
+            StartCoroutine(Camera.main.GetComponent<CameraPos>().Shake(0.15f, 0.4f));
         }
 
         if(collision.gameObject.tag == "Attack")
         {
+            
             monsterAnimator.SetTrigger("Damage");
             monsterHP -= collision.gameObject.GetComponent<Attack>().attackDamage;
 
@@ -38,11 +45,24 @@ public class Monster : MonoBehaviour
                 MonsterDie();
             }
         }
-    }
+        if (collision.gameObject.tag == "Barrier")
+        {
+            moveTime = turnTime;
+        }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Barrier")
+        {
+            Debug.Log("Collision with Barrier detected");
+        }
+    }
     void Start()
     {
+        MonsterList.Instance.monsters.Add(this);
         monsterAnimator = GetComponent<Animator>();
+        
     }
 
     void Update()
@@ -52,7 +72,7 @@ public class Monster : MonoBehaviour
 
     void MonsterMove()
     {
-        if (isDie)
+        if (isDie) 
             return;
 
         moveTime += Time.deltaTime;
@@ -78,16 +98,26 @@ public class Monster : MonoBehaviour
         GameManager.Instance.playerExp += monsterExp;
 
         GetComponent<Collider2D>().enabled = false;
+        Invoke("AfterMonsterDie", 1.5f);
         Destroy(gameObject, 1.5f);
+        
     }
 
-    void OnDestroy()
+    void AfterMonsterDie()
     {
+        MonsterList.Instance.monsterConut -= 1;
+        MonsterList.Instance.monsterConutText.text = MonsterList.Instance.monsterConut.ToString();
+        MonsterList.Instance.monsters.Remove(this);
+        if (MonsterList.Instance.monsterConut <= 0)
+        {
+            MonsterList.Instance.clearPanel.SetActive(true);
+        }
         int itemRandom = Random.Range(0, itemObj.Length);
         if (itemRandom < itemObj.Length)
         {
             Instantiate(itemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
+
     }
 
 

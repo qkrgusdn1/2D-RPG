@@ -51,7 +51,7 @@ public class SelectCharacter : MonoBehaviour
     {
         nameTxt.text = characterInfos[charIndex].Name;
         featureTxt.text = characterInfos[charIndex].feature;
-        charImage.sprite = characters[charIndex].GetComponent<SpriteRenderer>().sprite;
+        charImage.sprite = characterInfos[charIndex].sprite;
     }
 
     private void Update()

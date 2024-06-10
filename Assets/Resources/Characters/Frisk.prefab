@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed5a67e3b0e2aa4d8f764b705eafcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamage: 20
   audioSource: {fileID: 4159244496058566949}
 --- !u!95 &6066613952478615684
 Animator:
