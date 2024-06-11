@@ -40,6 +40,7 @@ public class MonsterList : MonoBehaviour
             clearCount -= Time.deltaTime;
             if (clearCount <= 0)
             {
+                GameManager.Instance.clear = true;
                 clearPanel.GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
                 SceneManager.LoadScene("SampleScene");
                 return;

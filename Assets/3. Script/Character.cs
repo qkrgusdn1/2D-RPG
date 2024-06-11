@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     bool justAttack, justJump;
 
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody2d;
 
     private AudioSource audioSource;
@@ -21,7 +20,7 @@ public class Character : MonoBehaviour
     public float attackSpeed;
     public GameObject attackObj;
 
-    float scaleChange;
+    bool faceRight = true;
     bool isLadder;
     bool isClimbing;
     float inputVertical;
@@ -75,7 +74,6 @@ public class Character : MonoBehaviour
         {
             animationEventHandler.finishAttackListener += SetAttackObjnactive;
         }
-        scaleChange = transform.localScale.x;
 
         if (Instance == null)
         {
@@ -86,7 +84,6 @@ public class Character : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2d = GetComponent<Rigidbody2D>();
 
         Attack attackObjAudio = GetComponentInChildren<Attack>(true);
@@ -157,15 +154,14 @@ public class Character : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-            transform.localScale = new Vector3(scaleChange, transform.localScale.y, 0);
             animator.SetBool("Move", true);
+            if (!faceRight) Filp();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
-
-            transform.localScale = new Vector3(-scaleChange, transform.localScale.y, 0);
             animator.SetBool("Move", true);
+            if (faceRight) Filp();
         }
         else
         {
@@ -184,6 +180,17 @@ public class Character : MonoBehaviour
         //        spriteRenderer.flipX = true;
         //}
     }
+
+    void Filp()
+    {
+        faceRight = !faceRight;
+
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
+
+
 
     void JumpCheck()
     {
@@ -211,13 +218,13 @@ public class Character : MonoBehaviour
 
             if (gameObject.name == "Warrior(Clone)")
             {
-                attackObj.SetActive(true);
+                attackObj.GetComponent<Collider2D>().enabled = true;
                 Invoke("SetAttackObjnactive", 0.5f);
 
             }
             else if (gameObject.name == "Mage(Clone)" || gameObject.name == "Archer(Clone)")
             {
-                if (spriteRenderer.flipX)
+                if (!faceRight)
                 {
                     GameObject obj = Instantiate(attackObj, transform.position, Quaternion.Euler(0, 180, 0));
                     obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left * attackSpeed, ForceMode2D.Impulse);
@@ -234,6 +241,7 @@ public class Character : MonoBehaviour
             {
                 animator.Play("Attack");
                 attackObj.SetActive(true);
+ 
             }
         }
 
@@ -252,13 +260,20 @@ public class Character : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.localScale = new Vector3(scaleChange, transform.localScale.y, 0);
+            if (!faceRight) Filp();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.localScale = new Vector3(-scaleChange, transform.localScale.y, 0);
+            if (faceRight) Filp();
+        }
+
+        if(gameObject.name == "Warrior(Clone)")
+        {
+            attackObj.GetComponent<Collider2D>().enabled = false;
+            return;
         }
         attackObj.SetActive(false);
+        
 
     }
 

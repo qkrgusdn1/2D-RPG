@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -72,7 +73,10 @@ public class SelectCharacter : MonoBehaviour
     {
         gameStart.SetActive(true);
         isPlayButtonClicked = true;
-        GameManager.Instance.characterName = characters[charIndex].name;
+
+        Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), characters[charIndex].name);
+
+        GameManager.Instance.seletedPlayer = player;
     }
 
     private void Start()

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class StartManager : MonoBehaviour
 {
+    public GameObject exitPopUp;
+
     [Header("Membership")]
     public GameObject membershipUI;
     public InputField membershipID;
@@ -25,6 +27,14 @@ public class StartManager : MonoBehaviour
     public GameObject errorUI;
     public Text errorMessage;
 
+
+    private void Start()
+    {
+        if (GameManager.Instance.clear)
+        {
+            exitPopUp.gameObject.SetActive(true);
+        }
+    }
     public void MembershipBtn()
     {
         //valid check

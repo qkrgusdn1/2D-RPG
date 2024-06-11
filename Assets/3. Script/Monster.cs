@@ -99,7 +99,6 @@ public class Monster : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
         Invoke("AfterMonsterDie", 1.5f);
-        Destroy(gameObject, 1.5f);
         
     }
 
@@ -117,6 +116,7 @@ public class Monster : MonoBehaviour
         {
             Instantiate(itemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
+        Destroy(gameObject);
 
     }
 

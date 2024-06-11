@@ -508,3 +508,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 15
   audioSource: {fileID: 0}
+  asrielDreemurr: 1
