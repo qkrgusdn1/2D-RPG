@@ -32,8 +32,8 @@ public class PlayerUI : MonoBehaviour
     GameObject player;
     public GameObject spawnPos;
 
-    float playTime;
-    int minutes;
+    public float playTime;
+    public int minutes;
     public TMP_Text playTimeText;
 
     public TMP_Text attackAmountText;
@@ -72,11 +72,6 @@ public class PlayerUI : MonoBehaviour
                 playTimeText.text = minutes.ToString() + "Ка" + playTime.ToString("F0") + "УЪ";
             }
 
-        }
-        else if(MonsterList.Instance.monsterConut <= 0)
-        {
-            GameManager.Instance.currentMinutes = minutes;
-            GameManager.Instance.currentSeconds = playTime;
         }
 
 

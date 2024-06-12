@@ -74,6 +74,8 @@ public class SelectCharacter : MonoBehaviour
         gameStart.SetActive(true);
         isPlayButtonClicked = true;
 
+        GameManager.Instance.playingStop = false;
+
         Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), characters[charIndex].name);
 
         GameManager.Instance.seletedPlayer = player;

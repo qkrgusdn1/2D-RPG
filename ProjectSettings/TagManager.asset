@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - HP
   - Barrier
+  - SpeedItem
+  - AttackItem
   layers:
   - Default
   - TransparentFX

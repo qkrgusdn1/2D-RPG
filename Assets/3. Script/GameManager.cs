@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int currentMinutes;
     public float currentSeconds;
 
+    public bool playingStop;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,27 +35,41 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(Instance);
     }
 
+    private void Update()
+    {
+        if (MonsterList.Instance.monsterConut <= 0 && !playingStop)
+        {
+            SetTime(PlayerUI.Instance.minutes, PlayerUI.Instance.playTime);
+            playingStop = true;
+        }
+    }
+
     private void Start()
     {
         userID = PlayerPrefs.GetString("ID");
         bestMinutes = PlayerPrefs.GetInt("bestMinutes");
         bestSeconds = PlayerPrefs.GetFloat("bestSeconds");
+        currentSeconds = float.MaxValue;
+        currentMinutes = int.MaxValue;
     }
 
-    private void Update()
+    public void SetTime(int minutes, float seconds)
     {
-        if (bestMinutes < currentMinutes || bestMinutes == 0)
+        currentMinutes = minutes;
+        currentSeconds = seconds;
+
+        if (bestMinutes > minutes || bestMinutes == 0)
         {
-            bestMinutes = currentMinutes;
+            bestMinutes = minutes;
             PlayerPrefs.SetInt("bestMinutes", bestMinutes);
         }
-        if (bestSeconds < currentSeconds || bestSeconds == 0)
+        if (bestSeconds > seconds || bestSeconds == 0)
         {
-            bestSeconds = currentSeconds;
+            bestSeconds = seconds;
             PlayerPrefs.SetFloat("bestSeconds", bestSeconds);
         }
     }
-
+    
     public GameObject SpawnPlayer(Transform spawnPos)
     {
         GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + seletedPlayer.ToString());

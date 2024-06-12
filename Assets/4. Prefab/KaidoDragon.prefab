@@ -152,6 +152,8 @@ MonoBehaviour:
   itemObj:
   - {fileID: 5658135771496708727, guid: f7352760eeea38f4d8b9f3ee028783b0, type: 3}
   - {fileID: 8169702183343051604, guid: f83a0e81f3375b547b9db507f19d7f9c, type: 3}
+  - {fileID: 5390388118064043520, guid: 5d026b1a560a26c4f84311f49ebe8026, type: 3}
+  - {fileID: 8711326139048757062, guid: 237d9ea262299df4e91f3e3835d4c090, type: 3}
 --- !u!95 &5508820338686674101
 Animator:
   serializedVersion: 5
