@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class StartManager : MonoBehaviour
 {
-    public GameObject exitPopUp;
 
     [Header("Membership")]
     public GameObject membershipUI;
@@ -27,14 +26,6 @@ public class StartManager : MonoBehaviour
     public GameObject errorUI;
     public Text errorMessage;
 
-
-    private void Start()
-    {
-        if (GameManager.Instance.clear)
-        {
-            exitPopUp.gameObject.SetActive(true);
-        }
-    }
     public void MembershipBtn()
     {
         //valid check
@@ -42,6 +33,7 @@ public class StartManager : MonoBehaviour
         PlayerPrefs.SetString("ID", membershipID.text);
         PlayerPrefs.SetString("PW", membershipPW.text);
         PlayerPrefs.SetString("FIND", membershipFind.text);
+        
 
         membershipUI.SetActive(false);
         Debug.Log($"<가입 완료> ID : {PlayerPrefs.GetString("ID")}, PW : {PlayerPrefs.GetString("PW")}, FIND : {PlayerPrefs.GetString("FIND")}");

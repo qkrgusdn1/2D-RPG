@@ -40,9 +40,8 @@ public class MonsterList : MonoBehaviour
             clearCount -= Time.deltaTime;
             if (clearCount <= 0)
             {
-                GameManager.Instance.clear = true;
                 clearPanel.GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("ClearScene");
                 return;
             }
             clearPanel.GetComponentInChildren<TMP_Text>().text = $"카이도우의 섬을 정복했다. \n {Mathf.FloorToInt(clearCount)}";

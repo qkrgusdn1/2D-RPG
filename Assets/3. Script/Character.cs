@@ -74,6 +74,11 @@ public class Character : MonoBehaviour
         {
             animationEventHandler.finishAttackListener += SetAttackObjnactive;
         }
+        if(PlayerUI.Instance != null)
+        {
+            PlayerUI.Instance.character = this;
+        }
+        
 
         if (Instance == null)
         {
