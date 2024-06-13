@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (MonsterList.Instance.monsterConut <= 0 && !playingStop)
+        if (MonsterList.Instance != null&& MonsterList.Instance.monsterConut <= 0 && !playingStop)
         {
             SetTime(PlayerUI.Instance.minutes, PlayerUI.Instance.playTime);
             playingStop = true;
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
         currentMinutes = minutes;
         currentSeconds = seconds;
 
-        if (bestMinutes > minutes || bestMinutes == 0)
+        if (bestMinutes > minutes)
         {
             bestMinutes = minutes;
             PlayerPrefs.SetInt("bestMinutes", bestMinutes);

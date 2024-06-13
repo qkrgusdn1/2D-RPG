@@ -32,10 +32,14 @@ public class PopUpButton : MonoBehaviour
     }
     public void Change()
     {
+
+        GameManager.Instance.playingStop = false;
         SceneManager.LoadScene("SelectScenes");
+
     }
     public void Home()
     {
+        GameManager.Instance.playingStop = false;
         SceneManager.LoadScene("SampleScene");
     }
 }

@@ -1625,6 +1625,7 @@ MonoBehaviour:
   bestSeconds: 0
   currentMinutes: 0
   currentSeconds: 0
+  playingStop: 0
 --- !u!4 &343101047
 Transform:
   m_ObjectHideFlags: 0
@@ -17530,6 +17531,8 @@ MonoBehaviour:
   character: {fileID: 0}
   hpSlider: {fileID: 127832591}
   spawnPos: {fileID: 810162453}
+  playTime: 0
+  minutes: 0
   playTimeText: {fileID: 38978960}
   attackAmountText: {fileID: 1218813235}
   speedAmountText: {fileID: 969592877}

@@ -24,6 +24,14 @@ public class SelectCharacter : MonoBehaviour
     bool isPlayButtonClicked = false;
     public float gameCount;
 
+    void Start()
+    {
+
+        GameManager.Instance.playingStop = false;
+        GameManager.Instance.playerHp = 100;
+        SetPanelInfo();
+    }
+
     public void SelectCharacterBtn(string btnName)
     {
         
@@ -74,15 +82,9 @@ public class SelectCharacter : MonoBehaviour
         gameStart.SetActive(true);
         isPlayButtonClicked = true;
 
-        GameManager.Instance.playingStop = false;
-
         Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), characters[charIndex].name);
 
         GameManager.Instance.seletedPlayer = player;
     }
 
-    private void Start()
-    {
-        SetPanelInfo();
-    }
 }
