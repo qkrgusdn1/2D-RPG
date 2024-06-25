@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public float playerHp;
     public float playerExp;
-    GameObject player;
+    public GameObject player;
     public int coin;
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + characterName);
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
-        return player;
+        return player; 
     }
 
     private void Start()
