@@ -3,6 +3,8 @@ using UnityEngine;
 public class MouseEvent : MonoBehaviour
 {
     public GameObject potion_UI;
+    public GameObject power_UI;
+    public GameObject battle_UI;
     void Update()
     {
         MouseClick();
@@ -19,15 +21,15 @@ public class MouseEvent : MonoBehaviour
             {
                 if (hit.collider.gameObject.name == "PowerNPC")
                 {
-                    Debug.Log("PowerNPC");
+                    power_UI.SetActive(true);
                 }
                 else if (hit.collider.gameObject.name == "PotionNPC")
                 {
-                    Debug.Log("PotionNPC");
+                    potion_UI.SetActive(true);
                 }
                 else if (hit.collider.gameObject.name == "BattleNPC")
                 {
-                    Debug.Log("BattleNPC");
+                    battle_UI.SetActive(true);
                 }
             }
         }
