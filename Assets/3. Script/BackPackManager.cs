@@ -29,7 +29,7 @@ public class BackPackManager : MonoBehaviour
     void Update()
     {
         BackPackUIOn();
-        coinText.text = $"Coin: {GameManager.Instance.coin:N0}";
+        coinText.text = $"Coin: {GameManager.Instance.playerStat.coin:N0}";
     }
     void BackPackUIOn()
     {
@@ -42,18 +42,18 @@ public class BackPackManager : MonoBehaviour
     IEnumerator DefItem()
     {
         defItemUsingCount++;
-        GameManager.Instance.playerDef *= 2;
+        GameManager.Instance.playerStat.def *= 2;
         GameManager.Instance.Character.GetComponent<SpriteRenderer>().color = Color.blue;
-        Debug.Log("1. PlayerDef : " + GameManager.Instance.playerDef);
+        Debug.Log("1. PlayerDef : " + GameManager.Instance.playerStat.def);
         yield return new WaitForSeconds(10f);
 
         defItemUsingCount--;
-        GameManager.Instance.playerDef /= 2;
+        GameManager.Instance.playerStat.def /= 2;
         if (defItemUsingCount == 0)
         {
             GameManager.Instance.Character.GetComponent<SpriteRenderer>().color = Color.white;
         }
-        Debug.Log("2. PlayerDef : " + GameManager.Instance.playerDef);
+        Debug.Log("2. PlayerDef : " + GameManager.Instance.playerStat.def);
     }
 
     public bool AddItem(InventoryItemData item)
@@ -77,24 +77,24 @@ public class BackPackManager : MonoBehaviour
 
         if (inventoryItem.itemID == "HP")
         {
-            GameManager.Instance.playerHp += 10f;
-            GameManager.Instance.playerHp = Mathf.Min(GameManager.Instance.playerHp, 100f);
+            GameManager.Instance.playerStat.hP += 10f;
+            GameManager.Instance.playerStat.hP = Mathf.Min(GameManager.Instance.playerStat.hP, 100f);
             PopupMsgManager.Instance.ShowPopupMessage("체력이 10 회복 되었습니다.");
         }
         else if (inventoryItem.itemID == "MP")
         {
-            GameManager.Instance.playerMp += 10f;
-            GameManager.Instance.playerMp = Mathf.Min(GameManager.Instance.playerHp, 100f);
+            GameManager.Instance.playerStat.mP += 10f;
+            GameManager.Instance.playerStat.mP = Mathf.Min(GameManager.Instance.playerStat.hP, 100f);
             PopupMsgManager.Instance.ShowPopupMessage("마나가 10 회복 되었습니다.");
         }
         else if (inventoryItem.itemID == "HP_Power")
         {
-            GameManager.Instance.playerHp = 100f;
+            GameManager.Instance.playerStat.hP = 100f;
             PopupMsgManager.Instance.ShowPopupMessage("체력 전체가 회복 되었습니다.");
         }
         else if (inventoryItem.itemID == "MP_Power")
         {
-            GameManager.Instance.playerMp = 100f;
+            GameManager.Instance.playerStat.hP = 100f;
             PopupMsgManager.Instance.ShowPopupMessage("마나 전체가 회복 되었습니다.");
         }
         else if(inventoryItem.itemID == "Def")

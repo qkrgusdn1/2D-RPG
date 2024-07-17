@@ -3,19 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class CharacterStat
+{
+    public float hP;
+    public float mP;
+    public float exp;
+    public float def;
+    public int level;
+    public int coin;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public Define.Player selectedPlayer;
+
     public string characterName;
     public string userID;
 
-    public float playerHp;
-    public float playerMp;
-    public float playerExp;
-    public float playerDef;
+    public CharacterStat playerStat = new CharacterStat();
+    [HideInInspector]
     public GameObject player;
-    public int coin;
+    
     private void Awake()
     {
         if(Instance == null)
@@ -51,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject SpawnPlayer(Transform spawnPos)
     {
-        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + characterName);
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + selectedPlayer.ToString());
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
         return player; 
     }

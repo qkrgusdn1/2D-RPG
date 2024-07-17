@@ -10,11 +10,12 @@ public class Character : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
 
+
     bool isFloor;
     bool justAttack, justJump;
+    bool faceRight = true;
 
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody2d;
 
     private AudioSource audioSource;
@@ -76,7 +77,6 @@ public class Character : MonoBehaviour
         
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -140,24 +140,17 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             animator.SetBool("Move", true);
+            if (!faceRight) Filp();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             animator.SetBool("Move", true);
+            if (faceRight) Filp();
         }
         else
         {
             animator.SetBool("Move", false);
-        }
-
-        if(Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            spriteRenderer.flipX = true;
         }
     }
 
@@ -188,7 +181,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                if (spriteRenderer.flipX)
+                if (!faceRight)
                 {
                     GameObject obj = Instantiate(attackObj, transform.position, Quaternion.Euler(0, 180, 0));
                     obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left * attackSpeed, ForceMode2D.Impulse);
@@ -205,6 +198,15 @@ public class Character : MonoBehaviour
         
 
        
+    }
+
+    void Filp()
+    {
+        faceRight = !faceRight;
+
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
     void SetAttackObjnactive()
