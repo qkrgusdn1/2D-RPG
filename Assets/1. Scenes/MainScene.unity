@@ -435,7 +435,9 @@ MonoBehaviour:
   characterName: Warrior
   userID: das
   playerHp: 100
+  playerMp: 0
   playerExp: 0
+  playerDef: 0
   player: {fileID: 0}
   coin: 0
 --- !u!4 &343101047
@@ -2499,8 +2501,8 @@ GameObject:
   - component: {fileID: 810162454}
   m_Layer: 0
   m_Name: 'InitSpawn '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: initPos
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4914,7 +4916,6 @@ MonoBehaviour:
   characterImg: {fileID: 1045252805}
   idText: {fileID: 831080380}
   hpSlider: {fileID: 127832591}
-  spawnPos: {fileID: 810162453}
 --- !u!1 &2117104733
 GameObject:
   m_ObjectHideFlags: 0

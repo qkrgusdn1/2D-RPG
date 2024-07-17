@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public string userID;
 
     public float playerHp;
+    public float playerMp;
     public float playerExp;
+    public float playerDef;
     public GameObject player;
     public int coin;
     private void Awake()
@@ -27,6 +29,25 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(Instance);
     }
+
+    public Character Character
+    {
+        get
+        {
+            return player.GetComponent<Character>();
+        }
+            
+    }
+
+    public Attack CharacterAttack
+    {
+        get
+        {
+            return Character.attackObj.GetComponent<Attack>();
+        }
+    }
+
+
 
     public GameObject SpawnPlayer(Transform spawnPos)
     {

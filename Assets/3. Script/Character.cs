@@ -31,6 +31,8 @@ public class Character : MonoBehaviour
     public float playerHP;
     public float playerExp;
 
+    public bool speedUp;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
@@ -113,7 +115,11 @@ public class Character : MonoBehaviour
         }
         else
         {
-            speed = maxSpeed;
+            if (!speedUp)
+            {
+                speed = maxSpeed;
+            }
+            
             rigidbody2d.gravityScale = 1f;
         }
     }

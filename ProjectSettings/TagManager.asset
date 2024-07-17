@@ -9,6 +9,7 @@ TagManager:
   - Attack
   - Coin
   - HP
+  - initPos
   layers:
   - Default
   - TransparentFX
