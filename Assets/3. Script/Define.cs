@@ -8,6 +8,6 @@ public class Define
     {
         Warrior,
         Mage,
-        Acher
+        Archer
     }
 }
