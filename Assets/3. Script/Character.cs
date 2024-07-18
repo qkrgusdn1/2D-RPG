@@ -165,12 +165,16 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void AttackAnimation()
+    {
+        animator.SetTrigger("Attack");
+    }
+
     void Attack()
     {
         if(justAttack)
         {
             justAttack = false;
-
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(attackClip);
 

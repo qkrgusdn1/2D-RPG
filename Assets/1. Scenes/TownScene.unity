@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 275ad1b20ed04dc439d37b708ab18860, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2953,9 +2953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d2aaafb1c18db4aac7be6d2f383d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillExplainUI: {fileID: 2016472138}
-  SkillImage: {fileID: 1686361786}
-  SkillText: {fileID: 1636918046}
+  skillExplainUI: {fileID: 0}
+  skillImage: {fileID: 0}
+  skillText: {fileID: 0}
+  skills: []
 --- !u!114 &538569309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8421,7 +8422,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 98c03a4b7b895ab46863fbdbbbc7d0c4, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9344,7 +9345,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1e3a21663fe9cd348a7003599cc0d640, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
